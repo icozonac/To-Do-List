@@ -1,4 +1,4 @@
-var getName = null;
+let getName = null;
 
 while (getName === null || !isNaN(getName)){
   getName = prompt("What is your name ? ");
@@ -7,10 +7,10 @@ while (getName === null || !isNaN(getName)){
     alert("Invalid name, please try again");
   
   }else{
-     var x = document.getElementById("header");
+      let x = document.getElementById("header");
     
-      var y = document.createElement("H1"); 
-      var t = document.createTextNode(getName +"'s To Do List");
+      let y = document.createElement("H1"); 
+      let t = document.createTextNode(getName +"'s To Do List");
       y.appendChild(t);
     
       document.getElementById("header").appendChild(y);
