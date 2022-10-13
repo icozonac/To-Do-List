@@ -142,4 +142,13 @@ select{
 
 }
 
+.delete-all-button{
+    background-color: #e40c0c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 11px;
+    font-size: 16px;
+    border-radius: 2px;
+}
  
