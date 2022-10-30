@@ -133,8 +133,8 @@ select{
     background:#eb6fba ;
     top: 0;
     right:0;
-    padding: 8px;
-    pointer-events: none;
+    padding: 9.5px;
+    cursor: pointer;
     transition: all 0.3s ease;
 
 }
