@@ -29,6 +29,9 @@ form button{
     outline: none;
 
 }
+input:focus::placeholder{
+    color:transparent;
+}
 form button{
     cursor: pointer;
     transition: 0.3s;
