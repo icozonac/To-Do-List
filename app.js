@@ -1,21 +1,3 @@
-let getName = null;
-
-while (getName === null || !isNaN(getName)) {
-  getName = prompt("What is your name ? ");
-
-  if (getName === null || !isNaN(getName)) {
-    alert("Invalid name, please try again");
-  } else {
-    let x = document.getElementById("header");
-
-    let y = document.createElement("H1");
-    let t = document.createTextNode(getName + "'s To Do List");
-    y.appendChild(t);
-
-    document.getElementById("header").appendChild(y);
-  }
-}
-
 //Selectors
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
@@ -29,15 +11,34 @@ todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("click", filterTodo);
 
 //Functions
+const capitalizeFirstLetter = (str) =>
+  str.substring(0, 1).toUpperCase() + str.substring(1, str.length);
+
+const assignName = () => {
+  let getName = null;
+
+  while (getName === null || !isNaN(getName)) {
+    getName = prompt("What is your name ? ");
+
+    if (getName === null || !isNaN(getName)) {
+      return alert("Invalid name, please try again");
+    }
+
+    const header = document.getElementById("header");
+    const h1 = document.createElement("h1");
+    const text = document.createTextNode(
+      capitalizeFirstLetter(getName) + "'s To Do List"
+    );
+    h1.appendChild(text);
+
+    header.appendChild(h1);
+  }
+};
 
 //check all trash buttons
 const checkIfDeleteButtonExists = () => {
   const exists = document.querySelector(".delete-all-button");
-  if (exists) {
-    return true;
-  } else {
-    return false;
-  }
+  return exists ? true : false;
 };
 
 const createDeleteAllButton = () => {
@@ -71,7 +72,7 @@ const createDeleteAllButton = () => {
           setTimeout(() => {
             deleteButton.classList.add("fall");
             deleteButton.addEventListener("transitionend", function () {
-            deleteButton.remove();
+              deleteButton.remove();
             });
           }, 500);
 
@@ -235,3 +236,6 @@ function removeLocalTodos(todo) {
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+//execution of the code
+assignName();
